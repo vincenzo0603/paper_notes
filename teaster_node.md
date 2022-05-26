@@ -46,6 +46,44 @@ $$
 - 噪声边界$\beta _i$一般可以设置为$3\sigma$作为最大误差 
 
 ## 将尺度，旋转和平移解耦
+Translation Invariant Measurements (TIMs):平移不变性度量，意思是点云集$B通过平移t之后，b_i,b_j之间的绝对位置是不变的$，服从下面公式
+$$
+b_j−b_i = sR(a_j−a_i)+(o_j−o_i)+(\epsilon _j−\epsilon _i)
+$$
+- t在做减法中被消除，这样我们可以获得TIM通过$a_{ij}= a_j − a_i 和 b_{ij}=b_j − b_i$
+
+即简化为：
+$$
+b_{ij} = sRa_{ij} + o_{ij} + \epsilon _{ij}
+$$
+- 当第i个和第j个都是inliers，则$o_{ij}=(o_j−o_i)$是零向量;其他情况是任意向量
+- 如果$ ||\epsilon _i|| ≤ β_i 且 ||\epsilon _j|| ≤ β_j , 那么||\epsilon _{ij}|| ≤ β_i + β_j= δij $
+- 这样TIM的生成模型仅依赖两个未知s和R
+---
+Translation and Rotation Invariant Measurements (TRIMs):平移和旋转不变性，显然TIM仍依赖与旋转R，但是，它们的距离对R和t都是不变的(公式太多，这里贴图加解释)
+
+- ![](./img/trims.png)
+- 公式（8）是上面平移不变性度量(TIM)推出的
+- 公式（9）根据$不等式||\epsilon _i||<= \delta _{ij}$得到的不等式
+- 公式（10）将绝对值范围缩小
+- 最后对公式（10）等式两边同时除以$||a_{ij}||$,得到仅有的未知量s的函数
+
+
+## 总结
+作者提出可以级联解决尺度，旋转，平移的解藕方案，命名为截断最小二乘估计和半定松弛--Truncated least squares Estimation And SEmidefinite Relaxation (TEASER)
+
+1. 使用TRIMs去估计尺度： s
+2. 使用s 和TIMs 去估计 R
+3. 使用s 和R 去估计t（在原始的TLS问题公式模型中，在二：论文细节的开端）
+
+[注]：{1,2,3}中s，R，t的估计作者论文都有公式，这里没贴出来
+
+---
+## 伪代码
+- ![](./img/pseudocode.png)
+
+
+
 
 
 # 三：框架逻辑
@@ -68,3 +106,7 @@ $$
 
 - 半正定规划（SDP）例子
 ![](./img/sdp.jpg)
+## 关于最大团结构--Max Clique Inlier Selection (MCIS)
+最大团结构，目的是修剪outliers
+
+## 关于自适应投票
