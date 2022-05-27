@@ -111,3 +111,14 @@ Translation and Rotation Invariant Measurements (TRIMs):平移和旋转不变性
 最大团结构，目的是修剪outliers
 
 ## 关于自适应投票
+
+## 别人总结
+1. 输入为两组点云的匹配对和噪声上界
+2. 使用adaptive voting进行尺度估计，如果尺度已知，则进行已知尺度修剪外点操作
+3. 产生内点图
+4. 在内点图中寻找最大团从而选择最大内点集
+5. 最大内点集传入GNC-TLS模块进行旋转估计
+6. 使用adaptive voting进行平移估计
+7. 输出为尺度，旋转和平移
+- ![](./img/ter.jpg)
+- ![](./img/tttt.png)
