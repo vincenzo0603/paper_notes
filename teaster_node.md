@@ -87,10 +87,11 @@ Translation and Rotation Invariant Measurements (TRIMs):平移和旋转不变性
 
 
 # 三：框架逻辑
+基本框架
+- ![](./img/TEASER-PLUSPLUS.png)
 
-- 见思维导图
-
-
+1:registration.cc
+- ![](./img/registration.png)
 
 # [注]：
 1. 凸优化问题（OPT，convex optimization problem）指定义在凸集中的凸函数最优化的问题，对于凸优化问题来说，局部最优解就是全局最优解。
