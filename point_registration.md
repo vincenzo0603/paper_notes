@@ -21,6 +21,9 @@
 
 - A Single Correspondence Is Enough: Robust Global Registration to Avoid Degeneracy in Urban Environments(2022)
 
+## 全局配准对比
+- TEASER中有开发一个TEASER++: A FAST C++ IMPLEMENTATION适合用于移动机器人的全局配准，但是也使用了开源线程库openMP
+- A Single Correspondence Is Enough:防退化
 
 
 # 目前2d激光slam

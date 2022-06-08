@@ -75,6 +75,9 @@ Translation and Rotation Invariant Measurements (TRIMs):平移和旋转不变性
 1. 使用TRIMs去估计尺度： s
 2. 使用s 和TIMs 去估计 R
 3. 使用s 和R 去估计t（在原始的TLS问题公式模型中，在二：论文细节的开端）
+4. 论文有很强的理论性，好多看不懂的是因为作者在此之前还发表了两篇论文在此论文都有用到过
+- - A Quaternion-based Certifiably Optimal Solution to the Wahba Problem with Outliers
+- - Graduated Non-Convexity for Robust Spatial Perception: From Non-Minimal Solvers to Global Outlier Rejection
 
 [注]：{1,2,3}中s，R，t的估计作者论文都有公式，这里没贴出来
 
@@ -108,7 +111,7 @@ Translation and Rotation Invariant Measurements (TRIMs):平移和旋转不变性
 - 半正定规划（SDP）例子
 ![](./img/sdp.jpg)
 ## 关于最大团结构--Max Clique Inlier Selection (MCIS)
-最大团结构，目的是修剪outliers
+最大团结构，目的是修剪outliers，最大团结构使用的是分支定界的算法来修剪outliers
 
 ## 关于自适应投票
 
