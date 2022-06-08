@@ -81,6 +81,10 @@ Translation and Rotation Invariant Measurements (TRIMs):平移和旋转不变性
 - - A Polynomial-time Solution for Robust Registration with Extreme Outlier Rates
 
 [注]：{1,2,3}中s，R，t的估计作者论文都有公式，这里没贴出来
+### 关于GNC（Graduated Non-Convexity）
+- GNC类似与鲁棒核函数（鲁棒核函数通常会引入其他非凸性） 
+- 为此，我们利用了健壮估计和离群过程(传统上应用于早期视觉问题)之间的Black-Rangarajan对偶性，并表明渐进非凸性(GNC)可以与非最小解一起使用来计算健壮解，而不需要初始猜测。
+
 
 ---
 ## 伪代码
